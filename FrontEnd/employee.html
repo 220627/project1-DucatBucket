@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
+    crossorigin="anonymous">
+</head>
+<body>
+    <button id="getReimbButton" class="btn btn-dark">Show My Reimbursements</button>
+    <button id="insertReimb" class="btn btn-dark">Submit New Reimbursement</button>
+    <div id="table-row" class="row" style="margin:10px">
+        <table id="reimbTable" class = "table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Reimbursement Id</th>
+                    <th>Amount</th>
+                    <th>Created By</th>
+                    <th>Resolved By</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="reimbBody">
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        <input type="text" id="reimbAmount">
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        <select name="reimbType" id="reimbType">
+                            <option value="1">Lodging</option>
+                            <option value="2">Food</option>
+                            <option value="3">Travel</option>
+                        </select>
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+    <script src="employee.js"></script>
+</body>

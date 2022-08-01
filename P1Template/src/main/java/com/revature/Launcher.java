@@ -1,26 +1,37 @@
 package com.revature;
 
+import com.revature.controllers.ReimbursementController;
+import com.revature.controllers.UserController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import io.javalin.Javalin;
+
 public class Launcher {
+	public static Logger log = LogManager.getLogger();
 
 	public static void main(String[] args) {
+			
+		Javalin app = Javalin.create(
+				config -> {
+					config.enableCorsForAllOrigins();
+				}).start(3000);
 		
-		//Welcome to P1! 
+		log.info("Started App");
 		
-		//If you're reading this, you've successfully cloned your repo and imported the template
+		ReimbursementController rc = new ReimbursementController();
+		UserController uc = new UserController();
+		app.get("/reimbursements", rc.selectAll);
 		
-		//Do you coding in this project, and don't forget to save/push your progress with:
-		//git add.
-		//git commit -m"message"
-		//git push
+		app.post("/login", uc.loginHandler);
 		
-		//yes, you WILL need to push to your repo. The clients will want to see your project repos in your portfolios.
+		app.post("/insert", rc.insertReimbursement);
 		
-		//here's a dog to help you on your way. Have fun!
+		app.get("/reimbursements/:id", rc.selectByAuthor);
 		
-//               __
-//          (___()'`;
-//          /,    /`
-//          \\"--\\
+		app.get("/status/:status_id", rc.selectByStatus);
+		
+		app.put("/status/:id", rc.updateStatus);
 		
 	}
 	
